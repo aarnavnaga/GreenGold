@@ -191,12 +191,15 @@ function App() {
 
   return (
     <div className="app">
-      <header className="header">
-        <h1>GreenGold (GGC)</h1>
-        <p className="subtitle">Buy with ETH or claim with sustainability data</p>
+      <header className="header animate-in">
+        <div className="header-logo">
+          <img src="/logo.svg" alt="" />
+        </div>
+        <h1>GreenGold</h1>
+        <p className="subtitle">Buy with ETH or claim with sustainability data · GGC</p>
       </header>
 
-      <section className="section contract-section">
+      <section className="section contract-section animate-in animate-in-1">
         <h2>Contract</h2>
         <div className="row">
           <input
@@ -215,7 +218,7 @@ function App() {
         )}
       </section>
 
-      <section className="section wallet-section">
+      <section className="section wallet-section animate-in animate-in-2">
         <h2>Wallet</h2>
         {!account ? (
           <button type="button" onClick={connect} className="btn btn-primary">
@@ -235,9 +238,9 @@ function App() {
       {account && (
         <>
           {!contractAddressValid && (
-            <div className="status warning">Save a valid GreenGold contract address above to use balances and actions.</div>
+            <div className="status warning animate-in">Save a valid GreenGold contract address above to use balances and actions.</div>
           )}
-          <section className="section balances-section">
+          <section className="section balances-section animate-in animate-in-3">
             <h2>Balances</h2>
             <div className="balances">
               <div className="balance-card">
@@ -246,7 +249,7 @@ function App() {
               </div>
               <div className="balance-card">
                 <span className="label">Token price</span>
-                <span className="value">{tokenPrice} ETH</span>
+                <span className="value gold">{tokenPrice} ETH</span>
               </div>
             </div>
             <button type="button" onClick={refreshBalances} className="btn btn-outline btn-sm" disabled={!contractAddressValid}>
@@ -254,7 +257,7 @@ function App() {
             </button>
           </section>
 
-          <section className="section action-section">
+          <section className="section action-section animate-in animate-in-4">
             <h2>Buy with ETH</h2>
             <div className="form row">
               <input
@@ -270,7 +273,7 @@ function App() {
             </div>
           </section>
 
-          <section className="section action-section">
+          <section className="section action-section animate-in animate-in-5">
             <h2>Claim (sustainability)</h2>
             <p className="hint">Get a signature from <code>node scripts/signClaim.js</code> (verifier key required).</p>
             <div className="form stack">
@@ -307,7 +310,7 @@ function App() {
             </div>
           </section>
 
-          <section className="section action-section">
+          <section className="section action-section animate-in animate-in-6">
             <h2>Transfer</h2>
             <div className="form row">
               <input
@@ -330,7 +333,7 @@ function App() {
             </div>
           </section>
 
-          <section className="section action-section">
+          <section className="section action-section animate-in animate-in-7">
             <h2>Burn</h2>
             <div className="form row">
               <input
