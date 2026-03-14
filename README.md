@@ -72,3 +72,21 @@ PRIVATE_KEY=0x... node scripts/signClaim.js 0x1234... 1000000000000000000 1 0 11
 ```
 
 The output is the signature hex to pass to `claimWithSustainabilityData(amount, nonce, claimType, signature)`.
+
+## Frontend (UI)
+
+A React app in `frontend/` lets you connect a wallet, view GGC balance and token price, buy with ETH, claim with a sustainability signature, transfer, and burn.
+
+1. Deploy the contract (local or Sepolia) and note the contract address.
+2. Run the UI:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+3. Open the URL (e.g. http://localhost:5173), paste the GreenGold contract address and click **Save**, then **Connect wallet** (MetaMask). Switch MetaMask to the same network you deployed to (e.g. Sepolia or Localhost 8545).
+4. Use **Buy with ETH**, **Claim**, **Transfer**, and **Burn** as needed. For **Claim**, get a signature from the repo root: `PRIVATE_KEY=<verifier_key> node scripts/signClaim.js <your_address> <amount_wei> <nonce> <claimType> [chainId]`, then paste the hex into the signature field.
+
+Optional: set `VITE_CONTRACT_ADDRESS` in `frontend/.env` to pre-fill the contract address.
